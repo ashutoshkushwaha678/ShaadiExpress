@@ -1,0 +1,6 @@
+@ShaadiExpress_HostAddress = http://localhost:5207
+
+GET {{ShaadiExpress_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
