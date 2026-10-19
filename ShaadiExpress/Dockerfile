@@ -12,7 +12,7 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["ShaadiExpress/ShaadiExpress.csproj","ShaadiExpress/"]
+COPY ["ShaadiExpress.csproj","ShaadiExpress/"]
 RUN dotnet restore "./ShaadiExpress/ShaadiExpress.csproj"
 COPY . .
 WORKDIR "/src/ShaadiExpress"
