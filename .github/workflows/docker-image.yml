@@ -1,5 +1,5 @@
 
-name: .NET 8 AWS ECR CI/CD
+name: docker-image
 
 on:
   push:
