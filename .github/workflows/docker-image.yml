@@ -44,7 +44,11 @@ jobs:
         run: dotnet test ShaadiExpress.sln -c Release --no-build
 
       - name: Build Docker Image
-        run: docker build -t shaadiexpress:test .
+        run: |
+          docker build \
+            -f ShaadiExpress/Dockerfile \
+            -t shaadiexpress:test \
+            ShaadiExpress/
 
   # =========================
   # CI: PUSH IMAGE TO AWS ECR
@@ -78,8 +82,8 @@ jobs:
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v6
         with:
-          context: .
-          file: ./Dockerfile
+          context: ./ShaadiExpress
+          file: ./ShaadiExpress/Dockerfile
           push: true
           tags: |
             ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:latest
